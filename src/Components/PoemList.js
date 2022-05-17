@@ -1,8 +1,8 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import searchTerm from "./Form"
-import setSearchTerm from "./Form"
-import updateSearchTerm from "./Form"
+// import setSearchTerm from "./Form"
+// import searchTerm from "./Form"
 
 const PoemList =()=>{
     const [poemList, setPoemList] = useState(null);
@@ -13,9 +13,7 @@ const PoemList =()=>{
         fetch(`https://poetrydb.org//lines/${searchTerm}`)
           .then((response) => response.json())
           .then((data) => {
-            // reset searchTerm to empty
-            setSearchTerm("");
-            setPoemList(data[0].lines + data[1].lines);
+            setPoemList((data[0].lines));
           });
       };
     
@@ -24,7 +22,7 @@ const PoemList =()=>{
       if (poemList !== null) {
         poemDisplay = (
           <div>
-            <h2> {searchTerm}</h2>
+            <h2>{searchTerm}</h2>
                 <p>{poemList}</p>
           </div>
         );
@@ -32,14 +30,10 @@ const PoemList =()=>{
     
       return (
         <div >
-          <h1>︻╦╤─</h1>
-          <form onSubmit={handleSubmit}>
-            <label>reload:</label>
-            <input onChange={updateSearchTerm} value={searchTerm} type="text" placeholder="ammo"/>
-            <input type="submit" value="trigger" />
-          </form>
+       
         
           {poemDisplay}
+
         </div>
     
       );

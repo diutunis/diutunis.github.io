@@ -14,18 +14,25 @@ function Form() {
       setSearchTerm(event.target.value);
     };
   
+    
+  
+    
+
   
     return (
       <div >
         <h1>︻╦╤─</h1>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit= {handleSubmit}>
           <label>reload:</label>
           <input onChange={updateSearchTerm} value={searchTerm} type="text" placeholder="ammo"/>
           <input type="submit" value="trigger" />
         </form>
+        <p>
+  <PoemList/>
 
+            </p>
       
-     <PoemList/>
+    
       </div>
   
     );
