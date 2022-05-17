@@ -1,7 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 import { useEffect, useState } from "react";
-import { Link, Route } from "react-router-dom";
+import { Route } from 'react-router';
+import { Routes, Link, Navigate } from "react-router-dom";
 import Form from './Components/Form';
 
 
@@ -25,21 +26,29 @@ useEffect(() => {
 
   return (
     <div className="App">
-       {/* <h1>OMDb MOVIE APP</h1>
-      <form onSubmit={handleSubmit}>
-        <label>Title:</label>
-        <input onChange={updateSearchTerm} value={searchTerm} type="text" placeholder="Movie Title"/>
-        <input type="submit" value="Find Movie Info" />
-      </form>
-      <p>{message}</p>
-      {movieDisplay} */}
+
+  <nav>
+  <Link to='/'>
+      ︻╦╤─
+     </Link>
 
 
-      <h1>
+      
+    
+              
+             
+          
         
-        </h1>
-        <Form/>
-   
+          </nav>
+        
+      
+        <main>
+        <Routes>
+         <Route path ='/' element={<Form/>}/>
+         </Routes>
+           
+
+            </main>
 
 
     </div>

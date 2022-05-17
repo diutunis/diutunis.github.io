@@ -6,6 +6,7 @@ import searchTerm from "./Form"
 
 const PoemList =()=>{
     const [poemList, setPoemList] = useState(null);
+    const [poemTitle, setPoemTitle]= use 
 
     const handleSubmit = (event) => {
         // prevent page reload
