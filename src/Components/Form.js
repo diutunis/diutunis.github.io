@@ -7,6 +7,7 @@ function Form() {
 
     const [searchTerm, setSearchTerm] = useState("");
     const [poemList, setPoemList] = useState(null);
+    
   
     const updateSearchTerm = (event) => {
       setSearchTerm(event.target.value);
@@ -19,7 +20,7 @@ function Form() {
         .then((data) => {
           // reset searchTerm to empty
           setSearchTerm("");
-          setPoemList(data[0].lines);
+          setPoemList(data[0].lines + data[1].lines);
         });
     };
   
@@ -28,7 +29,8 @@ function Form() {
     if (poemList !== null) {
       poemDisplay = (
         <div>
-          <h2>title:{poemList}</h2>
+          <h2> {searchTerm}</h2>
+              <p>{poemList}</p>
         </div>
       );
     }
@@ -41,6 +43,7 @@ function Form() {
           <input onChange={updateSearchTerm} value={searchTerm} type="text" placeholder="ammo"/>
           <input type="submit" value="trigger" />
         </form>
+      
         {poemDisplay}
       </div>
   
