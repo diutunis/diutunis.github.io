@@ -10,14 +10,14 @@ function App() {
   
 const [sumn, setSumn]= useState([])
 
-// useEffect(() => {
+useEffect(() => {
   fetch('https://poetrydb.org//lines/zebra')
 .then(response => response.json())
 .then(data=> console.log(data))
 // .then(data => setSumn((data)))
 .then(data => setSumn((data[0].lines) + " - " + (data[0].author)))
 // .then(data => setSumn((data[0].lines)))
-// },[])
+},[])
 
 
 
@@ -36,9 +36,9 @@ const [sumn, setSumn]= useState([])
 
 
       <h1>
-        hello
+        
         </h1>
-        {/* <Form/> */}
+        <Form/>
    
 
 
