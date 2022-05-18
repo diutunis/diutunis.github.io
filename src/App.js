@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Route } from 'react-router';
 import { Routes, Link, Navigate } from "react-router-dom";
 import Form from './Components/Form';
+import About from './Components/About';
 
 
 
@@ -28,8 +29,10 @@ useEffect(() => {
     <div className="App">
 
   <nav>
-  <Link to='/'>
-      ︻╦╤─
+ 
+
+     <Link to='/About/'>
+     █ ▆ ▄ ▁
      </Link>
 
 
@@ -40,11 +43,18 @@ useEffect(() => {
           
         
           </nav>
-        
+          <h1>
+                <Link to='/'>
+      ︻╦╤─
+     </Link>
+          </h1>
+     
       
         <main>
         <Routes>
          <Route path ='/' element={<Form/>}/>
+         <Route path ='/About/' element={<About/>}/>
+         
          </Routes>
            
 
