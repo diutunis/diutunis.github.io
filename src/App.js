@@ -5,9 +5,15 @@ import { Route } from "react-router";
 import { Routes, Link, Navigate } from "react-router-dom";
 import Form from "./Components/Form";
 import About from "./Components/About";
-import Shells from "./Components/Shells";
+import Shell from "./Components/Shell";
+
 
 function App() {
+  const [shellList,setShellList]=useState([])
+  const addPoemToShell= (shell) => {
+
+    setShellList([...shellList,shell])
+  }
   // const [sumn, setSumn] = useState([]);
 
   // useEffect(() => {
@@ -27,7 +33,7 @@ function App() {
         <Link to="/">gun</Link>
         <br/>
       
-        <Link to='/Shells/'>
+        <Link to='/Shell/'>
      Shells
      </Link>
       </nav>
@@ -35,9 +41,9 @@ function App() {
 
       <main>
         <Routes>
-          <Route path="/" element={<Form />} />
+          <Route path="/" element={<Form addPoemToShell={addPoemToShell} />} />
           <Route path="/About/" element={<About />} />
-          <Route path="/Shells/" render={() => <Shells/>} />
+          <Route path="/Shell/" render={() => <Shell title={shellList}/>} />
         </Routes>
       </main>
     </div>
