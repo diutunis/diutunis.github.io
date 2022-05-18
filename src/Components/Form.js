@@ -14,7 +14,7 @@ function Form() {
   const [poemLines, setPoemLines] = useState(null);
   const [poemTitle, setPoemTitle] = useState(null);
   const [poemAuthor, setPoemAuthor] = useState(null);
-  const [selectedPoem, setSelectedPoem] = useState(null);
+  const [shellList, setShellList] = useState(null);
 
   let updateSearchTerm = (event) => {
     setSearchTerm(event.target.value);
@@ -59,7 +59,7 @@ function Form() {
         <input type="submit" value="trigger" />
       </form>
       <p>{poemDisplay}</p>
-      <ShellButton/>
+      <ShellButton />
     </div>
   );
 }

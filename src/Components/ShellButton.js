@@ -4,12 +4,13 @@ import { Link, Route } from "react-router-dom";
 import addPoemToShell from "../App";
 import shell from"./Shells"
 import Shells from "./Shells";
+import searchTerm from "./Form"
 
 
 
 function ShellButton(props){
 
-    const [shellList,setShellList]=useState(null)
+    const [shellList,setShellList]=useState([])
     const addPoemToShell= (shell) => {
       console.log(shell)
 
@@ -18,7 +19,7 @@ function ShellButton(props){
           .then((response) => response.json())
           .then((data) => {
         
-            setShellList(data[0].title);
+            setShellList([...shellList, data[0].title]);
           });
    
 

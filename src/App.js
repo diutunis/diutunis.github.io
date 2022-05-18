@@ -35,7 +35,7 @@ function App() {
         <Link to="/">gun</Link>
         <br/>
       
-        <Link to='/Shell/'>
+        <Link to='/Shells/'>
      Shells
      </Link>
       </nav>
