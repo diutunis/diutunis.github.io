@@ -11,7 +11,10 @@ import App from "../App";
 function Form() {
 
     const [searchTerm, setSearchTerm] = useState("");
-    const [poemList, setPoemList] = useState(null);
+    const [poemLines, setPoemLines] = useState(null);
+    const [poemTitle, setPoemTitle] = useState(null);
+    const [poemAuthor, setPoemAuthor] = useState(null);
+    
     
   
     const updateSearchTerm = (event) => {
@@ -22,20 +25,28 @@ function Form() {
     const handleSubmit = (event) => {
         // prevent page reload
         event.preventDefault();
-        fetch(`https://poetrydb.org//lines/${searchTerm}`)
+        fetch(`https://poetrydb.org//lines/${searchTerm}/author,lines,title`)
           .then((response) => response.json())
           .then((data) => {
-            setPoemList((data[0].lines));
+            setPoemLines((data[0].lines));
+            setPoemTitle((data[0].title));
+            setPoemAuthor((data[0].author))
+
           });
       };
     
       
       let poemDisplay = "";
-      if (poemList !== null) {
+      if (poemLines !== null) {
         poemDisplay = (
           <div>
             <h2>{searchTerm}</h2>
-                <p>{poemList}</p>
+              <h4>{poemTitle}
+                 </h4>
+            <h3>{poemAuthor}</h3>
+           
+                <p>{poemLines}</p>
+                
           </div>
         );
       }

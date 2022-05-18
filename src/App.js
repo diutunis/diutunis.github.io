@@ -32,7 +32,7 @@ useEffect(() => {
  
 
      <Link to='/About/'>
-     █ ▆ ▄ ▁
+     about.
      </Link>
 
 
