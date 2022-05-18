@@ -39,13 +39,13 @@ function App() {
      Shells
      </Link>
       </nav>
-      <h1>︻╦╤─</h1>
+      <h1>︻╦╤=─</h1>
 
       <main>
         <Routes>
           <Route path="/" element={<Form addPoemToShell={addPoemToShell} />} />
           <Route path="/About/" element={<About />} />
-          <Route path="/Shells/" render={() => <Shells addPoemToShell={addPoemToShell} title={shell}/>} />
+          <Route path="/Shells/" element= {<Shells addPoemToShell={addPoemToShell} title={shell}/>} />
         </Routes>
       </main>
     </div>

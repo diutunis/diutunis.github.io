@@ -9,11 +9,25 @@ import Shells from "./Shells";
 
 function ShellButton(props){
 
-    const [shellList,setShellList]=useState([])
+    const [shellList,setShellList]=useState(null)
     const addPoemToShell= (shell) => {
       console.log(shell)
+
+
+        fetch(`https://poetrydb.org/title/${searchTerm}/author,lines,title`)
+          .then((response) => response.json())
+          .then((data) => {
+        
+            setShellList(data[0].title);
+          });
+   
+
+
+
+
+
   
-      setShellList([...shellList,shell])
+    //   setShellList([...shellList,shell])
    
 
     }
@@ -23,7 +37,7 @@ function ShellButton(props){
 
 <div>
 
-<button onClick={() => props.addPoemToShell(shell)} >pick up</button>    
+<button onClick={() => addPoemToShell(shell)} >pick up</button>    
 </div>
 
     )}
