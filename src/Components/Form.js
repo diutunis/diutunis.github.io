@@ -3,6 +3,8 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { Link, Route } from "react-router-dom";
 import App from "../App";
+import Shells from "./Shells";
+import setShell from "./Shells";
 
 
 // import PoemList from "./PoemList"
@@ -14,15 +16,16 @@ function Form() {
     const [poemLines, setPoemLines] = useState(null);
     const [poemTitle, setPoemTitle] = useState(null);
     const [poemAuthor, setPoemAuthor] = useState(null);
+    const [selectedPoem, setSelectedPoem] =useState("shells");
     
     
   
-    const updateSearchTerm = (event) => {
+    let updateSearchTerm = (event) => {
       setSearchTerm(event.target.value);
     };
   
     
-    const handleSubmit = (event) => {
+    let handleSubmit = (event) => {
         // prevent page reload
         event.preventDefault();
         fetch(`https://poetrydb.org//lines/${searchTerm}/author,lines,title`)
@@ -31,9 +34,19 @@ function Form() {
             setPoemLines((data[0].lines));
             setPoemTitle((data[0].title));
             setPoemAuthor((data[0].author))
+            setShell((data[0].title))
+         
 
-          });
-      };
+          },[]); 
+
+          
+    }
+      ;
+      
+
+          
+
+     
     
       
       let poemDisplay = "";
@@ -46,7 +59,8 @@ function Form() {
             <h3>{poemAuthor}</h3>
            
                 <p>{poemLines}</p>
-                
+            
+            <button onClick={Shells}>pick up</button>    
           </div>
         );
       }
@@ -63,10 +77,9 @@ function Form() {
           <input onChange={updateSearchTerm} value={searchTerm} type="text" placeholder="ammo"/>
           <input type="submit" value="trigger" />
         </form>
-        <p>{poemDisplay}
+        <p>{poemDisplay}</p>
   
 
-            </p>
             
           
       
