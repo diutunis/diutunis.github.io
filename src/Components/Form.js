@@ -2,7 +2,9 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { Link, Route } from "react-router-dom";
 import App from "../App";
-import shell from"./Shell"
+import ShellButton from "./ShellButton";
+import Shell from"./Shells"
+import Shells from "./Shells";
 
 // import PoemList from "./PoemList"
 // import handleSubmit from "./PoemList"
@@ -39,7 +41,7 @@ function Form() {
 
         <p>{poemLines}</p>
 
-        <button onClick={() => shell.props.addPoemToShell(shell)} >pick up</button>
+        {/* <button onClick={() => Shells.props.addPoemToShell(shell)} >pick up</button> */}
       </div>
     );
   }
@@ -57,6 +59,7 @@ function Form() {
         <input type="submit" value="trigger" />
       </form>
       <p>{poemDisplay}</p>
+      <ShellButton/>
     </div>
   );
 }

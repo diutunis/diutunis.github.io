@@ -5,12 +5,14 @@ import { Route } from "react-router";
 import { Routes, Link, Navigate } from "react-router-dom";
 import Form from "./Components/Form";
 import About from "./Components/About";
-import Shell from "./Components/Shell";
+import shell from "./Components/Shells";
+import Shells from "./Components/Shells";
 
 
 function App() {
   const [shellList,setShellList]=useState([])
   const addPoemToShell= (shell) => {
+    console.log(shell)
 
     setShellList([...shellList,shell])
   }
@@ -43,7 +45,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Form addPoemToShell={addPoemToShell} />} />
           <Route path="/About/" element={<About />} />
-          <Route path="/Shell/" render={() => <Shell title={shellList}/>} />
+          <Route path="/Shells/" render={() => <Shells addPoemToShell={addPoemToShell} title={shell}/>} />
         </Routes>
       </main>
     </div>
