@@ -22,7 +22,7 @@ function App() {
 
   return (
     <div className="App">
-      <nav  className="gun">
+      <nav  className="nav">
 
         <Link to="/About/">Poem.</Link>
 
