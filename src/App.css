@@ -7,14 +7,38 @@
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@media screen and (max-width: 576px) {
+  .App {  
+    background-color: rgb(216, 215, 215);
+  
+  }
+  .shell {
+    display: grid;
+    grid-template-columns: 1fr, 1fr;
+
   }
 }
+@media screen and (min-width: 992px) {
+  .App {
+      background-color: rgb(255, 255, 255);
 
+
+  }
+  /* .projectsSide {
+  
+      grid-column: 2;
+      grid-template-rows: 1;
+      background-color: rgb(32,32,32)
+      
+*/
+  }
+ 
+.script{
+  font-family: 'Pinyon Script', cursive;
+
+}
 .App {
-  background-color: rgb(255, 255, 255);
+  /* background-color: rgb(255, 255, 255); */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
