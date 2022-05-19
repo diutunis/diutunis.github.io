@@ -8,14 +8,7 @@ import About from "./Components/About";
 import shell from "./Components/Shells";
 import Shells from "./Components/Shells";
 
-
 function App() {
-  const [shellList,setShellList]=useState([])
-  const pickUpShell= (shell) => {
-    console.log(shell)
-
-    setShellList([...shellList,shell])
-  }
   // const [sumn, setSumn] = useState([]);
 
   // useEffect(() => {
@@ -27,23 +20,13 @@ function App() {
   //   // .then(data => setSumn((data[0].lines)))
   // }, []);
 
-
-  const handleShell = (title) => {
-    setShellList(title);
-  }
-
-
   return (
     <div className="App">
       <nav>
         <Link to="/About/">poem.</Link>
 
         <Link to="/">gun</Link>
-        <br/>
-      
-        <Link to='/Shells/'>
-     Shells
-     </Link>
+        <br />
       </nav>
       <h1>︻╦╤=─</h1>
 
@@ -51,10 +34,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Form />} />
           <Route path="/About/" element={<About />} />
-          <Route path="/Shells/" element= {<Shells pickUpShell={handleShell} title={shellList}/>} />
         </Routes>
       </main>
-   
     </div>
   );
 }

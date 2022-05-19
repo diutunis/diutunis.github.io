@@ -2,18 +2,18 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { Link, Route } from "react-router-dom";
 import App from "../App";
-import ShellButton from "./ShellButton";
-import Shell from"./Shells"
-import Shells from "./Shells";
+import ShellButton from "./ShellButton"
+import Shells from "./Shells"
 
-// import PoemList from "./PoemList"
-// import handleSubmit from "./PoemList"
 
-function Form(props) {
+
+
+function Form() {
   const [searchTerm, setSearchTerm] = useState("");
   const [poemLines, setPoemLines] = useState(null);
-  const [poemTitle, setPoemTitle] = useState(null);
+  const [poemTitle, setPoemTitle] = useState([]);
   const [poemAuthor, setPoemAuthor] = useState(null);
+  const [shell, setShell]= useState([]);
 
 
   let updateSearchTerm = (event) => {
@@ -21,7 +21,6 @@ function Form(props) {
   };
 
   let handleSubmit = (event) => {
-    // prevent page reload
     event.preventDefault();
     fetch(`https://poetrydb.org/title/${searchTerm}/author,lines,title`)
       .then((response) => response.json()
@@ -29,13 +28,10 @@ function Form(props) {
         setPoemTitle(data[0].title);
         setPoemAuthor(data[0].author);
         setPoemLines(data[0].lines);
-        // setShellList(data[0].title)
-      }))
 
-  //     const handleShell = (title) => {
-  //       setShellList(title);
-    
-  // };
+      }))}
+
+
   let poemDisplay = "";
   if (poemLines !== null) {
     poemDisplay = (
@@ -46,7 +42,7 @@ function Form(props) {
 
         <p>{poemLines}</p>
 
-        {/* <button onClick={() => Shells.props.addPoemToShell(shell)} >pick up</button> */}
+
       </div>
     );
   }
@@ -63,10 +59,21 @@ function Form(props) {
         />
         <input type="submit" value="trigger" />
       </form>
+
       <p>{poemDisplay}</p>
-      {/* <ShellButton title= {props.shellList} pickUpShell={props.handleShell}/> */}
+    <div>    
+      
+        <ShellButton collectShell={()=>{
+          setShell(poemTitle)
+        }
+
+        }/>
+      <Shells title={shell}/>
+     
+    </div>
+
     </div>
   );
 }
-}
+
 export default Form;
