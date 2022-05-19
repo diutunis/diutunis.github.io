@@ -22,13 +22,14 @@ function App() {
 
   return (
     <div className="App">
-      <nav>
+      <nav  className="gun">
+
         <Link to="/About/">Poem.</Link>
 
         <Link to="/">gun</Link>
         <br />
       </nav>
-      <h1>︻╦╤=─</h1>
+      <h1 className="gun">︻╦╤=─</h1>
 
       <main>
         <Routes>

@@ -22,7 +22,7 @@ function Form() {
 
   let handleSubmit = (event) => {
     event.preventDefault();
-    fetch(`https://poetrydb.org/title/${searchTerm}/author,lines,title`)
+    fetch(`https://poetrydb.org//title/${searchTerm}/author,lines,title`)
       .then((response) => response.json()
       .then((data) => {
         setPoemTitle(data[0].title);
@@ -40,7 +40,7 @@ function Form() {
   if (poemLines !== null) {
     poemDisplay = (
       <div>
-        <h2>{searchTerm}</h2>
+        <p>{searchTerm}</p>
         <h3>{poemTitle}</h3>
         <h4>{poemAuthor}</h4>
 
@@ -65,10 +65,10 @@ function Form() {
       </form>
 
       <p className="poem">{poemDisplay}</p>
-    <div>    
+    <div className="shell">    
       
         <ShellButton collectShell={()=>{
-          setShell([...shell, poemAuthor])
+          setShell([...shell," ", poemAuthor])
         }
 
         }/>
