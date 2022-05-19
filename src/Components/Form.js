@@ -48,7 +48,7 @@ function Form() {
   }
 
   return (
-    <div>
+    <div className="form">
       <form onSubmit={handleSubmit}>
         <label>reload:</label>
         <input
@@ -60,7 +60,7 @@ function Form() {
         <input type="submit" value="trigger" />
       </form>
 
-      <p>{poemDisplay}</p>
+      <p className="poem">{poemDisplay}</p>
     <div>    
       
         <ShellButton collectShell={()=>{
