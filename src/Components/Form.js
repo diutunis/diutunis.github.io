@@ -29,7 +29,11 @@ function Form() {
         setPoemAuthor(data[0].author);
         setPoemLines(data[0].lines);
 
-      }))}
+      }))
+    
+    
+    
+    }
 
 
   let poemDisplay = "";
@@ -50,21 +54,21 @@ function Form() {
   return (
     <div className="form">
       <form onSubmit={handleSubmit}>
-        <label>reload:</label>
+        <label>Reload:</label>
         <input
           onChange={updateSearchTerm}
           value={searchTerm}
           type="text"
-          placeholder="ammo"
+          placeholder="Ammo"
         />
-        <input type="submit" value="trigger" />
+        <input type="submit" value="Trigger" />
       </form>
 
       <p className="poem">{poemDisplay}</p>
     <div>    
       
         <ShellButton collectShell={()=>{
-          setShell(poemTitle)
+          setShell([...shell, poemAuthor])
         }
 
         }/>

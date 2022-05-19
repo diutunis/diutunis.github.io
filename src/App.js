@@ -23,7 +23,7 @@ function App() {
   return (
     <div className="App">
       <nav>
-        <Link to="/About/">poem.</Link>
+        <Link to="/About/">Poem.</Link>
 
         <Link to="/">gun</Link>
         <br />

@@ -14,22 +14,23 @@
 }
 
 .App {
-  background-color:black;
+  background-color: rgb(85, 100, 121);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
-  font-family: 'Times New Roman', Times, serif;
+  color: rgb(0, 0, 0);
+  font-family: 'BIZ UDPGothic', sans-serif;
 }
 .poem{
 
-  font-family: 'Times New Roman', Times, serif;
+  font-family: 'BIZ UDPGothic', sans-serif;
 }
 .form{
-  background-color: rgb(12, 10, 10);
+  background-color: rgba(255, 255, 255, 0.157);
+
 }
 
 .App-link {
