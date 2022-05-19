@@ -13,6 +13,7 @@ function Form() {
   const [poemTitle, setPoemTitle] = useState([]);
   const [poemAuthor, setPoemAuthor] = useState(null);
   const [shell, setShell]= useState([]);
+  const [message, setMessage] = useState("")
 
 
   let updateSearchTerm = (event) => {
@@ -23,12 +24,21 @@ function Form() {
     event.preventDefault();
     fetch(`https://poetrydb.org//title/${searchTerm}/author,lines,title`)
       .then((response) => response.json()
-      .then((data) => {
+      
+      .then((data) => {  if (data.reason) {
+        setMessage("Misfire!")
+      } else{
         setPoemTitle(data[0].title);
         setPoemAuthor(data[0].author);
         setPoemLines(data[0].lines);
+        console.log(data)
+        setMessage("")
 
-      }))
+   } })
+      
+      
+      
+      )
     
     
     
@@ -39,6 +49,7 @@ function Form() {
   if (poemLines !== null) {
     poemDisplay = (
       <div>
+ 
         <p>{searchTerm}</p>
         <h3>{poemTitle}</h3>
         <h4>{poemAuthor}</h4>
@@ -51,6 +62,9 @@ function Form() {
   }
 
   return (
+<div className="formshell">
+
+
     <div className="form">
       <form onSubmit={handleSubmit}>
         <label>Reload:</label>
@@ -62,19 +76,25 @@ function Form() {
         />
         <input type="submit" value="Trigger" />
       </form>
+      <p className="errormessage" >
+      {message}
+
+      </p>
 
       <p className="poem">{poemDisplay}</p>
-    <div className="shell">    
+   
+</div>
+ <div className="shell">    
+    
       
         <ShellButton collectShell={()=>{
-          setShell([...shell," ", poemAuthor])
+          setShell([...shell," ", poemAuthor,"-", poemTitle])
         }
 
         }/>
       <Shells title={shell}/>
      
     </div>
-
     </div>
   );
 }

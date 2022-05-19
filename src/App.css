@@ -7,9 +7,9 @@
   pointer-events: none;
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (min-width: 0px) {
   .App {  
-    background-color: rgb(216, 215, 215);
+    background-color: rgb(247, 245, 235);
   
   }
   .shell {
@@ -46,6 +46,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   font-family: 'Noto Sans', sans-serif;
+  margin: 1, auto;
 }
 
 .gun {
@@ -59,6 +60,11 @@
 
 
 } */
+
+.formshell{
+  display: grid;
+  
+}
 
 .App-link {
   color: #61dafb;
