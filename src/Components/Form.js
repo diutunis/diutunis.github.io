@@ -9,12 +9,12 @@ import Shells from "./Shells";
 // import PoemList from "./PoemList"
 // import handleSubmit from "./PoemList"
 
-function Form() {
+function Form(props) {
   const [searchTerm, setSearchTerm] = useState("");
   const [poemLines, setPoemLines] = useState(null);
   const [poemTitle, setPoemTitle] = useState(null);
   const [poemAuthor, setPoemAuthor] = useState(null);
-  const [shellList, setShellList] = useState(null);
+
 
   let updateSearchTerm = (event) => {
     setSearchTerm(event.target.value);
@@ -24,13 +24,18 @@ function Form() {
     // prevent page reload
     event.preventDefault();
     fetch(`https://poetrydb.org/title/${searchTerm}/author,lines,title`)
-      .then((response) => response.json())
+      .then((response) => response.json()
       .then((data) => {
         setPoemTitle(data[0].title);
         setPoemAuthor(data[0].author);
         setPoemLines(data[0].lines);
-      });
-  };
+        // setShellList(data[0].title)
+      }))
+
+  //     const handleShell = (title) => {
+  //       setShellList(title);
+    
+  // };
   let poemDisplay = "";
   if (poemLines !== null) {
     poemDisplay = (
@@ -59,9 +64,9 @@ function Form() {
         <input type="submit" value="trigger" />
       </form>
       <p>{poemDisplay}</p>
-      <ShellButton />
+      {/* <ShellButton title= {props.shellList} pickUpShell={props.handleShell}/> */}
     </div>
   );
 }
-
+}
 export default Form;

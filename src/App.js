@@ -11,7 +11,7 @@ import Shells from "./Components/Shells";
 
 function App() {
   const [shellList,setShellList]=useState([])
-  const addPoemToShell= (shell) => {
+  const pickUpShell= (shell) => {
     console.log(shell)
 
     setShellList([...shellList,shell])
@@ -26,6 +26,12 @@ function App() {
   //     .then((data) => setSumn(data[0].lines + " - " + data[0].author));
   //   // .then(data => setSumn((data[0].lines)))
   // }, []);
+
+
+  const handleShell = (title) => {
+    setShellList(title);
+  }
+
 
   return (
     <div className="App">
@@ -43,11 +49,12 @@ function App() {
 
       <main>
         <Routes>
-          <Route path="/" element={<Form addPoemToShell={addPoemToShell} />} />
+          <Route path="/" element={<Form />} />
           <Route path="/About/" element={<About />} />
-          <Route path="/Shells/" element= {<Shells addPoemToShell={addPoemToShell} title={shell}/>} />
+          <Route path="/Shells/" element= {<Shells pickUpShell={handleShell} title={shellList}/>} />
         </Routes>
       </main>
+   
     </div>
   );
 }
